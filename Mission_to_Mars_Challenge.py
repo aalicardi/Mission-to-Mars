@@ -153,12 +153,15 @@ for x in range(4):
     title = hemisphere_soup.find('h2', class_='title').text
     img_url = hemisphere_soup.find('li').a.get('href')
     
-    hem_content = {}
-    hem_content['title']=title
-    hem_content['img_url']= f'https://marshemispheres.com/{img_url}'
+    # creating dictionary
+    hemispheres = {}
     
- #add scraped stuff together into hemisphere_image_urls
-    hemisphere_image_urls.append(hem_content)
+    # Adding titles for the hemisphere images to the dictionary
+    hemispheres['title']=title
+    hemispheres['img_url']= f'https://marshemispheres.com/{img_url}'
+    
+ # add into hemisphere_image_urls
+    hemisphere_image_urls.append(hemispheres)
     browser.back()
 
 
